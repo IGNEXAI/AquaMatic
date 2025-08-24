@@ -1,0 +1,43 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 2cm;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #004d99;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2cm;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .report-section {
+            margin-bottom: 1.5cm;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .status-valid {
+            color: green;
+            font-weight: bold;
+        }
+        .status-invalid {
+            color: red;
+            font-weight: bold;
+        }
+        .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }

@@ -1,2 +1,11 @@
 inngest
 fastapi
+uvicorn~=0.35.0
+python-dotenv
+weasyprint~=66.0
+pydantic~=2.11.7
+Jinja2~=3.1.6 
+boto3~=1.40.16
+# dev-dependencies
+# pytest~=8.4.1
+

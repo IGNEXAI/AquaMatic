@@ -1,10 +1,15 @@
-import inngest
-import logging
+import fastapi
+import inngest.fast_api
 
-# Create an Inngest client
-inngest_client = inngest.Inngest(
-    app_id="app_example",
-    logger=logging.getLogger("uvicorn"),
+from app.client import inngest_client
+from app.functions import hello
+
+
+app = fastapi.FastAPI()
+
+
+inngest.fast_api.serve(
+    app,
+    inngest_client,
+    [hello],
 )
-
-

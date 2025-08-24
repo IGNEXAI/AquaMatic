@@ -1,0 +1,59 @@
+<body>
+
+    <div class="header">
+        <img src="{{ logo_url }}" alt="Company Logo">
+        <h1>Water Quality Validation Report</h1>
+        <p>Report Generated on: {{ current_date }}</p>
+    </div>
+
+    <div class="report-section">
+        <h2>Overall Validation Status</h2>
+        <p><strong>Status:</strong> 
+            <span class="{{ 'status-valid' if is_valid else 'status-invalid' }}">
+                <span class="icon">{{ '✅' if is_valid else '❌' }}</span>
+                {{ 'All parameters are within the acceptable range.' if is_valid else 'Some parameters are outside the accepted range.' }}
+            </span>
+        </p>
+    </div>
+
+    <div class="report-section">
+        <h2>Parameter Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Measured Value</th>
+                    <th>Accepted Range</th>
+                    <th>Status</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for param in parameters %}
+                <tr>
+                    <td>{{ param.name }}</td>
+                    <td>{{ param.value }}</td>
+                    <td>{{ param.range }}</td>
+                    <td><span class="{{ 'status-valid' if param.is_valid else 'status-invalid' }}">{{ '✅' if param.is_valid else '❌' }}</span></td>
+                    <td>{{ param.comment }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="report-section">
+        <h2>Detailed Issues</h2>
+        <ul>
+            {% for issue in issues %}
+            <li><span class="icon">❌</span> {{ issue }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>{{ company_name }} &copy; 2025</p>
+        <p>For more information, please contact our support team.</p>
+    </footer>
+
+</body>
